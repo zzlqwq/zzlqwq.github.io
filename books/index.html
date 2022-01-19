@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   
+  <meta name="referrer" content="never">
+  
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="renderer" content="webkit">
@@ -42,8 +44,6 @@
   
   
   
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
-  
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -58,7 +58,7 @@
           <img class="img-circle img-rotate" src="/images/zjl.jpg" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">Zhang Jiale</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">A robotics and artificial intelligence enthusiast</h3>
         <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Xian, China</small>
       </div>
       
@@ -186,6 +186,8 @@
         
         <li><a href="http://wpa.qq.com/msgrd?v=3&uin=1170629651&site=qq&menu=yes" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
         
+        <li><a href="https://www.zhihu.com/people/zhang-ji-ke-45" target="_blank" title="Zhihu" data-toggle=tooltip data-placement=top><i class="icon icon-zhihu"></i></a></li>
+        
     </ul>
 
     </nav>
@@ -282,7 +284,7 @@
   <article class="article article-links article-type-list" itemscope="">
   <header class="article-header">
     <h1 itemprop="title">书单</h1>
-    <p class="text-muted">Personal collection of books recommended to everyone <a href="https://www.douban.com/people//" target="_blank">[Douban]</a></p>
+    <p class="text-muted">Personal collection of books recommended to everyone <a href="https://www.douban.com/people/zjl/" target="_blank">[Douban]</a></p>
     <nav role="navigation" id="nav-main" class="okayNav">
       <ul id="tabs">
         <li><a id="reading-tab" href="javascript:show('reading')" rel="external">在读<span id="reading-total"></span></a></li>
@@ -325,6 +327,8 @@
         <li><a href="https://github.com/zzlqwq" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="http://wpa.qq.com/msgrd?v=3&uin=1170629651&site=qq&menu=yes" target="_blank" title="Qq" data-toggle=tooltip data-placement=top><i class="icon icon-qq"></i></a></li>
+        
+        <li><a href="https://www.zhihu.com/people/zhang-ji-ke-45" target="_blank" title="Zhihu" data-toggle=tooltip data-placement=top><i class="icon icon-zhihu"></i></a></li>
         
     </ul>
 
@@ -423,14 +427,14 @@ function show(id) {
   function loadDoubanCollections() {
     var _this = this;
     // https://api.douban.com/v2/book/user/:name/collections?start=0&count=100
-    var url = "https://api.douban.com/v2/book/user//collections"
+    var url = "https://api.douban.com/v2/book/user/zjl/collections"
     $.ajax({
       url: url,
       type: 'GET',
       data: {
         start:0, // 从哪一条记录开始
         count:100, // 获取豆瓣书单数据条数
-        apikey:'' // 豆瓣apikey
+        apikey:'0df993c66c0c636e29ecbb5344252a4a 0b2bdeda43b5688921839c8ecb20399b' // 豆瓣apikey
       },
       dataType: 'JSONP', //here
       success: function(data) {
