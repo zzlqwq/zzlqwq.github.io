@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://s4.ax1x.com/2022/01/26/7OmyPe.png">
 <meta property="og:image" content="https://s4.ax1x.com/2022/01/26/7Omr5D.png">
 <meta property="article:published_time" content="2021-01-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-26T14:24:16.148Z">
+<meta property="article:modified_time" content="2022-01-29T03:07:34.090Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="卡尔曼滤波">
 <meta property="article:tag" content="最优估计">
@@ -391,14 +391,23 @@ x_{k}  \\
 <p>当我们测量值只有位置信息没有速度信息时，卡尔曼滤波依旧可以正常的work，但是他的速度信息 $$\dot{x}$$ 相对于位置信息x来说会收敛的比较慢，估计效果会差一些。</p>
 </li>
 </ol>
-<p>我使用c++实现了一下卡尔曼滤波，矩阵运算模块借助了eigen库，这个库我直接放在了自己的省去了大家自己下载配置cmakelist的步骤，开袋即食。将需要的数据写入txt后可以使用excel分析数据，excel可以从文本文件导入数据。如下图。</p>
+<p>我使用c++实现了一下卡尔曼滤波，矩阵运算模块借助了eigen库，这个库我直接放在了自己的省去了大家自己下载配置cmakelist的步骤。将需要的数据写入txt后可以使用excel分析数据，excel可以从文本文件导入数据。如下图。</p>
 <div  align="center"><img src="https://s4.ax1x.com/2022/01/26/7OmyPe.png" alt="2"/></div>
 <div  align="center"><img src="https://s4.ax1x.com/2022/01/26/7Omr5D.png" alt="2"/></div>
 <p>我的示例中，观测量只有位置x与y，速度以及加速度都没有观测，所以可以看到，x与y的误差一直很小，而速度量与加速度量会有一些较大的偏差，虽然最终也会随着时间收敛到真实值。这也就是我在上面提到过的观测量不全的问题。</p>
+<h1 id="扩展卡尔曼滤波"><a class="markdownIt-Anchor" href="#扩展卡尔曼滤波"></a> 扩展卡尔曼滤波</h1>
+<p>卡尔曼滤波的使用前提是：</p>
+<ol>
+<li>系统是线性的</li>
+<li>噪声是高斯白噪声</li>
+</ol>
+<p>然而实际场景中状态方程或者观测方程往往是非线性的，如果学习过现代控制理论，我们就会知道，这时候我们需要使用泰勒展开对方程进行线性化。扩展卡尔曼滤波就是为了解决非线性方程的问题，拓宽了卡尔曼滤波的适用范围。</p>
+<p>参考文献：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/63641680">https://zhuanlan.zhihu.com/p/63641680</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/50620063">https://zhuanlan.zhihu.com/p/50620063</a></p>
 <h1 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h1>
-<p>温故了一下卡尔曼滤波，卡尔曼滤波的数学推导假设噪声为高斯白噪声，但是在实践中需要我们调节协方差等超参数。卡尔曼滤波在数学上可以证明是对状态信息的最优估计，此外卡尔曼滤波也可以应用在视觉领域的目标跟踪上。</p>
+<p>温故了一下卡尔曼滤波，卡尔曼滤波的数学推导假设噪声为高斯白噪声，但是在实践中需要我们调节协方差等超参数。</p>
 <p>代码已上传github仓库：<a target="_blank" rel="noopener" href="https://github.com/zzlqwq/Kalman_filter">项目地址</a></p>
-<p>tips：后续更新扩展卡尔曼滤波</p>
 
       
     </div>
@@ -428,7 +437,7 @@ x_{k}  \\
       </div>
       <div class="media-body">
         <h3 class="media-heading"><a href="https://github.com/zzlqwq" target="_blank"><span class="text-dark">Zhang Jiale</span><small class="ml-1x">A robotics and AI enthusiast</small></a></h3>
-        <div>Keep thinking and wondering</div>
+        <div>Stay curious about the unknown</div>
       </div>
     </figure>
   </div>
